@@ -309,10 +309,9 @@ test('Array flat', () => {
 
 test('Array flatMap', () => {
   let a = newArray();
-  a.set(3, newArray().contents);
   let array = a.contents;
-  let result = a.flatMap(item => item + "test");
-  let resultArray = array.flatMap(item => item + "test");
+  let result = a.flatMap(item => [item, item]);
+  let resultArray = array.flatMap(item => [item, item]);
   expect(result.contents).toMatchObject(resultArray);
 });
 
